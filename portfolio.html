@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com "></script>
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css " rel="stylesheet" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter :wght@400;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Times+New+Roman&display=swap " rel="stylesheet" />
+
+    <!-- Custom Styles -->
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+
+      /* Wave background animation for button */
+      .wave-bg {
+        position: relative;
+        overflow: hidden;
+        z-index: 0;
+      }
+
+      .wave-bg::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 200%;
+        height: 100%;
+        background: linear-gradient(120deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0.3) 100%);
+        transform: skewX(-20deg);
+        transition: none;
+        z-index: -1;
+      }
+
+      .wave-bg:hover::before {
+        animation: waveFlow 1s linear forwards;
+      }
+
+      @keyframes waveFlow {
+        0% {
+          left: -100%;
+        }
+        100% {
+          left: 100%;
+        }
+      }
+
+      /* Service Card Hover Effect */
+      .service-card {
+        position: relative;
+        overflow: hidden;
+        background-color: #fff8f8;
+        border: 1px solid #d9e2ec;
+        border-radius: 0.375rem;
+        padding: 1.5rem;
+        text-align: center;
+        transition: color 0.3s ease;
+        cursor: pointer;
+      }
+
+      .service-card::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 0%;
+        background-color: #f97316;
+        z-index: 0;
+        transition: height 0.5s ease;
+        pointer-events: none;
+      }
+
+      .service-card:hover::before {
+        height: 100%;
+      }
+
+      .service-card > * {
+        position: relative;
+        z-index: 10;
+        transition: color 0.5s ease;
+      }
+
+      .service-card:hover > * {
+        color: white !important;
+      }
+
+      .service-card .icon-wrapper {
+        background-color: #ffeaea;
+        margin-bottom: 1rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 9999px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.5s ease;
+        z-index: 10;
+        position: relative;
+      }
+
+      .service-card:hover .icon-wrapper {
+        background-color: #fb923c;
+      }
+
+      .service-card .icon-wrapper i {
+        color: #fca5a5;
+        font-size: 0.875rem;
+        transition: color 0.5s ease;
+      }
+
+      .service-card:hover .icon-wrapper i {
+        color: white;
+      }
+    </style>
+    <script src="https://unpkg.com/typewriter-effect@2.18.0/dist/core.js"></script>
+
+  </head>
+
+  <body class="bg-white text-gray-900">
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-white shadow-sm flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
+        <div class="flex items-center space-x-2">
+          <div class="w-6 h-6 bg-[#F15A4A] rotate-12"></div>
+          <div class="font-bold text-sm select-none">PORTFOLIO</div>
+        </div>
+        <ul class="hidden md:flex space-x-8 text-xs font-semibold text-gray-900">
+          <li><a class="hover:underline" href="#experience">Experience</a></li>
+          <li><a class="hover:underline" href="#resume">Resume</a></li>
+          <li><a class="hover:underline" href="#certificates">Certificates</a></li>
+          <li><a class="hover:underline" href="#Achievements">Achievements</a></li>
+          <li><a class="hover:underline" href="#">Projects</a></li>
+          <li><a class="hover:underline" href="#contact">Contact</a></li>
+        </ul>
+        <a class="hidden md:inline-block bg-[#F15A4A] text-white text-xs font-semibold px-4 py-2 rounded-md wave-bg" href="#">Get Free Consultant</a>
+      </nav>
+      
+
+    <!-- Hero Section -->
+    <section class="relative bg-[#D7DEE3]">
+      <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 flex flex-col md:flex-row items-center py-16 md:py-24">
+        <!-- Left text content -->
+        <div class="md:w-1/2 flex flex-col space-y-4 md:space-y-6">
+            <p class="text-xs text-[#F15A4A] font-semibold tracking-wide uppercase select-none">GET EVERY SINGLE SOLUTION.</p>
+            <h1 class="text-3xl md:text-4xl font-serif font-bold text-[#1B2A4A] leading-tight select-text max-w-md">
+              I’m <span id="typewriter" class="text-[#1B2A4A]"></span><br />L. GOPI KRISHNA
+            </h1>
+            <p class="text-xs text-[#4B5563] max-w-md leading-relaxed select-text">
+              A passionate developer skilled in Java, Spring Boot, and the MERN stack. I enjoy building scalable applications and solving real-world problems through efficient code.
+            </p>
+            <div class="flex space-x-4">
+              <button class="bg-[#F15A4A] text-white text-xs font-semibold px-5 py-2 rounded-md hover:bg-[#d14a3a] transition">Learn More</button>
+              <button class="border border-gray-300 text-xs font-semibold text-gray-500 px-5 py-2 rounded-md hover:bg-gray-100 transition">Hire Me</button>
+            </div>
+          </div>
+          
+          
+
+        <!-- Right image -->
+        <div class="md:w-1/2 mt-10 md:mt-0 flex justify-center md:justify-end relative">
+          <img class="w-72 md:w-80 object-contain" width="320" height="400" src="C:\Users\lgopi\OneDrive\Desktop\myimage.jpg" />
+        </div>
+      </div>
+
+      <!-- Top left circle -->
+      <div class="absolute top-12 left-6 w-6 h-6 border border-[#F15A4A] rounded-full opacity-30 select-none"></div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="bg-[#fff8f8]">
+      <div class="relative overflow-hidden">
+        <img alt="Decorative curved shape in light pink background top right" aria-hidden="true"
+          class="absolute top-0 right-0 w-[600px] max-w-full h-auto pointer-events-none select-none"
+          style="clip-path: ellipse(70% 100% at 100% 0);" width="600" height="300"
+          src="https://storage.googleapis.com/a1aa/image/8f874764-0a31-43a5-ec23-b16197df1442.jpg " />
+
+        <div class="max-w-7xl mx-auto px-4 py-12 sm:py-16">
+          <h2 class="text-[#1a1a1a] font-semibold text-lg leading-6 max-w-xs font-[Times New Roman]">
+            What Services you will <br />Get from me!
+          </h2>
+
+          <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-5xl">
+            <div class="service-card">
+              <div class="icon-wrapper mx-auto"><i class="fas fa-lightbulb"></i></div>
+              <h3 class="font-semibold text-sm mb-2">UI/UX Design</h3>
+              <p class="text-[10px] leading-4 text-[#7f7f7f]">
+                Free resources that will help understand the design process and improve the understanding of quality.
+              </p>
+            </div>
+
+            <div class="service-card">
+              <div class="icon-wrapper mx-auto"><i class="fas fa-bullhorn"></i></div>
+              <h3 class="font-semibold text-sm mb-2">Digital Marketing</h3>
+              <p class="text-[10px] leading-4 text-[#7f7f7f]">
+                Free resources that will help understand the design process and improve the understanding of quality.
+              </p>
+            </div>
+
+            <div class="service-card">
+              <div class="icon-wrapper mx-auto"><i class="fas fa-pencil-ruler"></i></div>
+              <h3 class="font-semibold text-sm mb-2">Website Design</h3>
+              <p class="text-[10px] leading-4 text-[#7f7f7f]">
+                Free resources that will help understand the design process and improve the understanding of quality.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="experience" class="bg-[#fff8f8]">
+        <div class="relative overflow-hidden">
+          <img aria-hidden="true"
+            class="absolute top-0 right-0 w-[600px] max-w-full h-auto pointer-events-none select-none"
+            style="clip-path: ellipse(70% 100% at 100% 0);" width="600" height="300" />
+      
+          <div class="max-w-7xl mx-auto px-4 py-12 sm:py-16">
+            <h2 class="text-[#1a1a1a] font-semibold text-lg leading-6 max-w-xs font-[Times New Roman]">
+              Experience
+            </h2>
+      
+            <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-5xl">
+              <!-- Internship at Biztron Softech -->
+              <div class="service-card">
+                <div class="icon-wrapper mx-auto"><i class="fas fa-code"></i></div>
+                <h3 class="font-semibold text-sm mb-2">MERN Stack Intern</h3>
+                <p class="text-[10px] leading-4 text-[#7f7f7f]">
+                  Worked at Biztron Softech as a MERN Stack Developer Intern, building a full-stack social media platform with authentication, profile systems, and notifications using MongoDB, Express.js, React.js, and Node.js.
+                </p>
+              </div>
+      
+              <!-- Internship at Online Examination System -->
+              <div class="service-card">
+                <div class="icon-wrapper mx-auto"><i class="fas fa-laptop-code"></i></div>
+                <h3 class="font-semibold text-sm mb-2">Full Stack Developer Intern</h3>
+                <p class="text-[10px] leading-4 text-[#7f7f7f]">
+                  Developed an Online Examination System with user roles, quiz modules, results dashboard, and authentication using JavaScript, Express.js, and MongoDB. Built secure REST APIs for user and admin operations.
+                </p>
+              </div>
+      
+              <!-- Current Role at YashTechMine -->
+              <div class="service-card">
+                <div class="icon-wrapper mx-auto"><i class="fas fa-layer-group"></i></div>
+                <h3 class="font-semibold text-sm mb-2">Frontend Developer – YashTechMine</h3>
+                <p class="text-[10px] leading-4 text-[#7f7f7f]">
+                  Currently working as a Frontend Developer. Contributed to UI development using React.js and Tailwind CSS. Focused on responsive design, component optimization, and user experience enhancements.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="resume" class="bg-white py-16">
+        <div class="max-w-7xl mx-auto px-4">
+          <h2 class="text-[#1a1a1a] font-semibold text-lg leading-6 mb-8 font-[Times New Roman]">
+            Educational Details
+          </h2>
+      
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Left Column: Education & Skills -->
+            <div>
+              <h3 class="text-[#F15A4A] font-semibold text-sm uppercase mb-2">Education</h3>
+              <div class="text-sm text-gray-700 mb-4">
+                <p class="font-semibold">B.Tech in Computer Science & Engineering</p>
+                <p>Lakireddy Bali Reddy College of Engineering, Andhra Pradesh</p>
+                <p>2022 – 2026</p>
+              </div>
+      
+              <h3 class="text-[#F15A4A] font-semibold text-sm uppercase mb-2">Skills</h3>
+              <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                <li>Java, JavaScript, Python</li>
+                <li>MERN Stack (MongoDB, Express, React, Node)</li>
+                <li>HTML, CSS, Tailwind, Bootstrap</li>
+                <li>GitHub, AWS Basics</li>
+              </ul>
+            </div>
+      
+            <!-- Right Column: Experience -->
+            <div>
+              <h3 class="text-[#F15A4A] font-semibold text-sm uppercase mb-2">Internships</h3>
+      
+              <div class="mb-4 text-sm text-gray-700">
+                <p class="font-semibold">MERN Stack Intern – Biztron Softech</p>
+                <p>Built full-stack social media platform, implemented auth, profiles, and notifications using React & Node.</p>
+              </div>
+      
+              <div class="mb-4 text-sm text-gray-700">
+                <p class="font-semibold">Full Stack Intern – Online Exam System</p>
+                <p>Developed quiz modules, reports, REST APIs using JavaScript and Express.</p>
+              </div>
+      
+              <div class="text-sm text-gray-700">
+                <p class="font-semibold">Frontend Developer – YashTechMine</p>
+                <p>Designed reusable UI components with React and Tailwind CSS, focused on responsive layouts.</p>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Download Button -->
+          <div class="mt-10 text-center">
+            <a href="https://drive.google.com/file/d/1ZS1Bv9nRwu_dcCdy2SxLX7iQ_qsfMGYh/view?usp=sharing" target="_blank"
+              class="inline-block bg-[#F15A4A] hover:bg-[#d14a3a] text-white text-xs font-semibold px-6 py-3 rounded-md transition">
+              📄 Download Resume
+            </a>
+          </div>
+        </div>
+      </section>
+      <section id="certificates" class="bg-[#f9f9f9] py-16">
+        <div class="max-w-7xl mx-auto px-4">
+          <h2 class="text-[#1a1a1a] font-semibold text-lg leading-6 mb-10 font-[Times New Roman]">
+            Certifications
+          </h2>
+      
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            
+            <!-- Certificate Card 1 -->
+            <div class="bg-white p-5 shadow rounded-md hover:shadow-lg transition">
+              <div class="mb-3">
+                <img src="https://img.icons8.com/ios-filled/50/000000/certificate.png" alt="Certificate Icon" class="w-8 h-8">
+              </div>
+              <h3 class="text-[#1B2A4A] font-semibold text-sm mb-1">MERN Stack Developer</h3>
+              <p class="text-xs text-gray-500 mb-2">Biztron Softech · 2024</p>
+              <a href="https://drive.google.com/file/d/1s2qxG5SahNK0Wzg-BbZ-UKFVJMbYSAGr/view?usp=sharing" target="_blank" class="text-xs text-[#F15A4A] hover:underline">View Certificate</a>
+            </div>
+      
+            <!-- Certificate Card 2 -->
+            <div class="bg-white p-5 shadow rounded-md hover:shadow-lg transition">
+              <div class="mb-3">
+                <img src="https://img.icons8.com/ios-filled/50/000000/certificate.png" alt="Certificate Icon" class="w-8 h-8">
+              </div>
+              <h3 class="text-[#1B2A4A] font-semibold text-sm mb-1">TechA Data Visualization using Tableau Developer</h3>
+              <p class="text-xs text-gray-500 mb-2">Achievement</p>
+              <a href="https://drive.google.com/file/d/1j8hgwvlmxkeWrTvRkp8zOu0yTax0qCFd/view?usp=sharing" target="_blank" class="text-xs text-[#F15A4A] hover:underline">View Certificate</a>
+            </div>
+      
+            <!-- Certificate Card 3 -->
+            <div class="bg-white p-5 shadow rounded-md hover:shadow-lg transition">
+              <div class="mb-3">
+                <img src="https://img.icons8.com/ios-filled/50/000000/certificate.png" alt="Certificate Icon" class="w-8 h-8">
+              </div>
+              <h3 class="text-[#1B2A4A] font-semibold text-sm mb-1">Frontend Developer</h3>
+              <p class="text-xs text-gray-500 mb-2">YashTechMine · 2025</p>
+              <a href="https://drive.google.com/file/d/YOUR_FRONTEND_CERT_LINK/view" target="_blank" class="text-xs text-[#F15A4A] hover:underline">View Certificate</a>
+            </div>
+
+            <!-- Certificate Card 4 -->
+            <div class="bg-white p-5 shadow rounded-md hover:shadow-lg transition">
+                <div class="mb-3">
+                  <img src="https://img.icons8.com/ios-filled/50/000000/certificate.png" alt="Certificate Icon" class="w-8 h-8">
+                </div>
+                <h3 class="text-[#1B2A4A] font-semibold text-sm mb-1">Sales-Force AI Association Certified</h3>
+                <p class="text-xs text-gray-500 mb-2">Achievement</p>
+                <a href="https://drive.google.com/file/d/1jNNKTZBpLiQUSQu0iL1RnJxy1X8mjgAx/view?usp=sharing" target="_blank" class="text-xs text-[#F15A4A] hover:underline">View Certificate</a>
+              </div>
+
+              <!-- Certificate Card 5 -->
+            <div class="bg-white p-5 shadow rounded-md hover:shadow-lg transition">
+                <div class="mb-3">
+                  <img src="https://img.icons8.com/ios-filled/50/000000/certificate.png" alt="Certificate Icon" class="w-8 h-8">
+                </div>
+                <h3 class="text-[#1B2A4A] font-semibold text-sm mb-1">AWS Certified Cloud Practitioner</h3>
+                <p class="text-xs text-gray-500 mb-2">Achievement</p>
+                <a href="https://drive.google.com/file/d/1aUVuolSfnOnEuhk-4A6F2Uh5mUg9KG_g/view?usp=sharing" target="_blank" class="text-xs text-[#F15A4A] hover:underline">View Certificate</a>
+              </div>
+            <!-- Certificate Card 6 -->
+              <div class="bg-white p-5 shadow rounded-md hover:shadow-lg transition">
+                <div class="mb-3">
+                  <img src="https://img.icons8.com/ios-filled/50/000000/certificate.png" alt="Certificate Icon" class="w-8 h-8">
+                </div>
+                <h3 class="text-[#1B2A4A] font-semibold text-sm mb-1">Cybersecurity Essentials by Cisco Networking Academy</h3>
+                <p class="text-xs text-gray-500 mb-2">Achievement</p>
+                <a href="https://drive.google.com/file/d/1aYz-T7QUcN_1DMpyUQuuuTiLOI92n-rb/view?usp=drive_link" target="_blank" class="text-xs text-[#F15A4A] hover:underline">View Certificate</a>
+              </div>
+      
+          </div>
+        </div>
+      </section>
+
+      <section id="Achievements" class="bg-[#f9f9f9] py-16">
+        <div class="max-w-7xl mx-auto px-4">
+          <h2 class="text-[#1a1a1a] font-semibold text-lg leading-6 mb-10 font-[Times New Roman]">
+            Achievements
+          </h2>
+      
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            
+            <!-- Achievements Card 1 -->
+            <div class="bg-white p-5 shadow rounded-md hover:shadow-lg transition">
+              <div class="mb-3">
+                <img src="https://img.icons8.com/ios-filled/50/000000/certificate.png" alt="Certificate Icon" class="w-8 h-8">
+              </div>
+              <h3 class="text-[#1B2A4A] font-semibold text-sm mb-1">AI Autonomous Hackathon VR Siddhartha (National Level)</h3>
+              <p class="text-xs text-gray-500 mb-2">Won 1st Prize</p>
+              <a href="https://drive.google.com/file/d/1t04I6XJr77J2ocP3K61S-pDvnYii0vvP/view?usp=sharing" target="_blank" class="text-xs text-[#F15A4A] hover:underline">View Certificate</a>
+            </div>
+            
+             <!-- Achievements Card 2 -->
+             <div class="bg-white p-5 shadow rounded-md hover:shadow-lg transition">
+                <div class="mb-3">
+                  <img src="https://img.icons8.com/ios-filled/50/000000/certificate.png" alt="Certificate Icon" class="w-8 h-8">
+                </div>
+                <h3 class="text-[#1B2A4A] font-semibold text-sm mb-1">Appreciation Certificate</h3>
+                <p class="text-xs text-gray-500 mb-2"></p>
+                <a href="https://drive.google.com/file/d/1bLTzURwwiLgFqrnKNEjVC_2CsEMs9NeG/view?usp=sharing" target="_blank" class="text-xs text-[#F15A4A] hover:underline">View Certificate</a>
+              </div>
+           
+          </div>
+        </div>
+      </section>
+
+      <section id="Extra-curricular" class="bg-[#f9f9f9] py-16">
+        <div class="max-w-7xl mx-auto px-4">
+          <h2 class="text-[#1a1a1a] font-semibold text-lg leading-6 mb-10 font-[Times New Roman]">
+            Extra-curricular Activities
+          </h2>
+      
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            
+            <!-- Extra-curricukar activities Card 1 -->
+            <div class="bg-white p-5 shadow rounded-md hover:shadow-lg transition">
+              <div class="mb-3">
+                <img src="https://img.icons8.com/ios-filled/50/000000/certificate.png" alt="Certificate Icon" class="w-8 h-8">
+              </div>
+              <h3 class="text-[#1B2A4A] font-semibold text-sm mb-1">Sports Certificate in LBRCE</h3>
+              <p class="text-xs text-gray-500 mb-2">Cricket</p>
+              <a href="https://drive.google.com/file/d/1MHJmFbX6-Z9L2FpSilJ1ogeFO0Sn-f4C/view?usp=sharing" target="_blank" class="text-xs text-[#F15A4A] hover:underline">View Certificate</a>
+            </div>
+            
+             <!-- Extra-curricukar activities Card 2 -->
+             <div class="bg-white p-5 shadow rounded-md hover:shadow-lg transition">
+                <div class="mb-3">
+                  <img src="https://img.icons8.com/ios-filled/50/000000/certificate.png" alt="Certificate Icon" class="w-8 h-8">
+                </div>
+                <h3 class="text-[#1B2A4A] font-semibold text-sm mb-1">Technical Events in RVR & JC college</h3>
+                <p class="text-xs text-gray-500 mb-2">Participated in java , sql events</p>
+                <a href="https://drive.google.com/file/d/161B8JTJcaIeSXRs0KQ1oJHmGbRklrQKB/view?usp=sharing" target="_blank" class="text-xs text-[#F15A4A] hover:underline">View Certificate</a>
+              </div>
+           
+          </div>
+        </div>
+      </section>
+      
+      <section id="contact" class="bg-white py-16">
+        <div class="max-w-5xl mx-auto px-4">
+          <h2 class="text-[#1a1a1a] font-semibold text-lg leading-6 mb-10 font-[Times New Roman]">Contact Me</h2>
+      
+          <form action="https://formsubmit.co/lgopikrishna84@gmail.com" method="POST" class="space-y-6 bg-[#f9f9f9] p-6 rounded-lg shadow-md">
+      
+            <!-- Hidden inputs to disable CAPTCHA and redirect -->
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="box">
+            <input type="hidden" name="_autoresponse" value="Thank you for contacting me! I will get back to you soon.">
+      
+            <!-- Name -->
+            <div>
+              <label for="name" class="text-sm font-medium text-gray-700">Your Name</label>
+              <input type="text" name="name" id="name" required
+                     class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#F15A4A] focus:border-[#F15A4A]">
+            </div>
+      
+            <!-- Email -->
+            <div>
+              <label for="email" class="text-sm font-medium text-gray-700">Your Email</label>
+              <input type="email" name="email" id="email" required
+                     class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#F15A4A] focus:border-[#F15A4A]">
+            </div>
+      
+            <!-- Message -->
+            <div>
+              <label for="message" class="text-sm font-medium text-gray-700">Message</label>
+              <textarea name="message" id="message" rows="4" required
+                        class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#F15A4A] focus:border-[#F15A4A]"></textarea>
+            </div>
+      
+            <!-- Submit Button -->
+            <div>
+              <button type="submit"
+                      class="bg-[#F15A4A] hover:bg-[#d14a3a] text-white text-sm font-semibold px-6 py-2 rounded-md transition">
+                Send Message
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <footer class="bg-[#1B2A4A] text-white py-10 mt-12">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- About -->
+          <div>
+            <h3 class="text-xl font-semibold mb-4">L. Gopi Krishna</h3>
+            <p class="text-sm text-gray-300">
+              Passionate Java Developer & MERN Stack Developer. Crafting scalable web solutions and intuitive user experiences.
+            </p>
+          </div>
+      
+          <!-- Quick Links -->
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+            <ul class="space-y-2 text-sm text-gray-300">
+              <li><a href="#home" class="hover:underline">Home</a></li>
+              <li><a href="#about" class="hover:underline">About</a></li>
+              <li><a href="#services" class="hover:underline">Services</a></li>
+              <li><a href="#portfolio" class="hover:underline">Portfolio</a></li>
+              <li><a href="#contact" class="hover:underline">Contact</a></li>
+            </ul>
+          </div>
+      
+          <!-- Social Links -->
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Connect with Me</h3>
+            <div class="flex space-x-4">
+              <a href="https://www.linkedin.com/in/l-gopi-krishna-70b341288/" target="_blank" class="text-gray-300 hover:text-white">
+                <i class="fab fa-linkedin text-xl"></i>
+              </a>
+              <a href="mailto:lgopikrishna84@gmail.com" class="text-gray-300 hover:text-white">
+                <i class="fas fa-envelope text-xl"></i>
+              </a>
+              <a href="https://https://github.com/LGOPIKRISHNA" target="_blank" class="text-gray-300 hover:text-white">
+                <i class="fab fa-github text-xl"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      
+        <div class="border-t border-gray-700 mt-10 pt-6 text-center text-sm text-gray-400">
+          © 2025 L. Gopi Krishna. All rights reserved.
+        </div>
+      </footer>
+      
+      
+    <script>
+        const app = document.getElementById('typewriter');
+      
+        const typewriter = new Typewriter(app, {
+          loop: true,
+          delay: 75,
+        });
+      
+        typewriter
+          .typeString('Java Developer')
+          .pauseFor(1500)
+          .deleteAll()
+          .typeString('MERN Full Stack Developer')
+          .pauseFor(1500)
+          .deleteAll()
+          .start();
+      </script>
+      
+  </body>
+</html>
